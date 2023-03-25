@@ -7,6 +7,7 @@ public class FSMActionInterestingObject : FSMAction
 {
     public override void Execute(FSMCharacter stateMachine)
     {
+        base.Execute(stateMachine);
         Debug.Log("Execute sight interesting object");
         var navMeshAgent = stateMachine.GetComponent<NavMeshAgent>();
         AISensor enemySightSensor = stateMachine.GetComponent<AISensor>();

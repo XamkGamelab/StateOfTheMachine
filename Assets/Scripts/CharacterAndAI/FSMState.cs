@@ -2,17 +2,26 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "FSM/State")]
-public sealed class FSMState : FSMBaseState
+public class FSMState : ScriptableObject
 {
     public List<FSMAction> Action = new List<FSMAction>();
     public List<FSMTransition> Transitions = new List<FSMTransition>();
+    public bool RemainState = false;
 
-    public override void Execute(FSMCharacter machine)
+    public virtual void Execute(FSMCharacter machine)
     {
         foreach (var action in Action)
         {
-            if (action.ExecuteOnce && !action.Executed)
+            Debug.Log("Execute state action: " + action);
+            if (action.ExecuteOnce/* && !action.Executed*/)
+            {
+                if (!action.Executed)
+                    action.Execute(machine);
+            }
+            else
+            {
                 action.Execute(machine);
+            }
         }
 
         foreach (var transition in Transitions)

@@ -6,8 +6,8 @@ using UniRx;
 
 public class FSMCharacter : NavMeshAgentCharacter
 {
-    [SerializeField, Tooltip("State from which the AI starts executing next states depending on decisions.")] private FSMBaseState _initialState;    
-    [ReadOnly, Tooltip("Current state for debugging.")] public FSMBaseState CurrentState;
+    [SerializeField, Tooltip("State from which the AI starts executing next states depending on decisions.")] private FSMState _initialState;    
+    [ReadOnly, Tooltip("Current state for debugging.")] public FSMState CurrentState;
 
     public enum EmotionalState { Default, Interested, Afraid }
     public EmotionalState CurrentEmotionalState = EmotionalState.Default;
