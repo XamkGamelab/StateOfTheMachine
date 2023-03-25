@@ -1,12 +1,14 @@
 using UnityEngine;
 using System.Linq;
 
-    [CreateAssetMenu(menuName = "FSM/Decisions/In Line Of Sight")]
-    public class FSMDecisionInterestingInSight : FSMDecision
+[CreateAssetMenu(menuName = "FSM/Decisions/Investigate Interesting Sighted Object")]
+public class FSMDecisionInterestingInSight : FSMDecision
+{
+    public override bool Decide(FSMCharacter stateMachine)
     {
-        public override bool Decide(FSMCharacter stateMachine)
-        {
-            AISensor enemySightSensor = stateMachine.GetComponent<AISensor>();
-            return enemySightSensor.Objects.FirstOrDefault() != null ? true : false;        
-        }
+        AISensor enemySightSensor = stateMachine.GetComponent<AISensor>();
+
+        InterestingObject firstInterestingObject = enemySightSensor.Objects.Select(go => go.GetComponent<InterestingObject>()).FirstOrDefault();
+        return firstInterestingObject?.IsStillInteresting() ?? false;
     }
+}

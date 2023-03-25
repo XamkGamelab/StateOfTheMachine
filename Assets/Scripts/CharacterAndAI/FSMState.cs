@@ -8,14 +8,14 @@ public class FSMState : ScriptableObject
     public List<FSMTransition> Transitions = new List<FSMTransition>();
     public bool RemainState = false;
 
-    public virtual void Execute(FSMCharacter machine)
+    public virtual void ExecuteState(FSMCharacter machine)
     {
-        foreach (var action in Action)
+        foreach (FSMAction action in Action)
         {
-            Debug.Log("Execute state action: " + action);
-            if (action.ExecuteOnce/* && !action.Executed*/)
+            
+            if (action.ExecuteOnce)
             {
-                if (!action.Executed)
+                if (!action.IsExecuted)                
                     action.Execute(machine);
             }
             else
@@ -24,7 +24,12 @@ public class FSMState : ScriptableObject
             }
         }
 
-        foreach (var transition in Transitions)
+        foreach (FSMTransition transition in Transitions)
             transition.Execute(machine);
+
+        foreach (FSMTransition transition in machine.FromAnyStateTransitions)
+        {
+            transition.Execute(machine);
+        }
     }
 }

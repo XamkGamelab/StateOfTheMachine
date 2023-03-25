@@ -1,18 +1,27 @@
 using UnityEngine;
 
-public abstract class FSMAction : ScriptableObject
+public abstract class FSMAction : ScriptableObject, ISerializationCallbackReceiver
 {
     public bool ExecuteOnce = false;
-
-    public bool Executed { get; private set; } = false;
+    
+    [System.NonSerialized]
+    public bool IsExecuted = false;
+    
     public virtual void Execute(FSMCharacter stateMachine)
     {
         if (ExecuteOnce)
-            Executed = true;
+            IsExecuted = true;
     }
 
     public void SetExecuted(bool isExecuted)
     {
-        Executed = isExecuted;
+        IsExecuted = isExecuted;
     }
+
+    public void OnAfterDeserialize()
+    {
+        IsExecuted = false;
+    }
+
+    public void OnBeforeSerialize() { }
 }

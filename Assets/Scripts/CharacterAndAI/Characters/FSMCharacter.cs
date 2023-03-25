@@ -6,12 +6,19 @@ using UniRx;
 
 public class FSMCharacter : NavMeshAgentCharacter
 {
-    [SerializeField, Tooltip("State from which the AI starts executing next states depending on decisions.")] private FSMState _initialState;    
-    [ReadOnly, Tooltip("Current state for debugging.")] public FSMState CurrentState;
+    [SerializeField, Tooltip("State from which the AI starts executing next states depending on decisions.")] 
+    private FSMState initialState;
+    [Tooltip("Transitions that are allowed from any state.")]
+    public List<FSMTransition> FromAnyStateTransitions = new List<FSMTransition>();
 
-    public enum EmotionalState { Default, Interested, Afraid }
+    [ReadOnly, Tooltip("Current state for debugging.")] 
+    public FSMState CurrentState;    
+    public enum EmotionalState { Default, Interested, Panic }
     public EmotionalState CurrentEmotionalState = EmotionalState.Default;
     #region Public
+
+    //TODO: Maybe this is obsolete? Test how causing panic from external source works in practice...
+    /*
     public void SetEmotionalState(EmotionalState emotionalState, float? returnToDefaultAfterSeconds)
     {
         //Set new current state
@@ -19,20 +26,21 @@ public class FSMCharacter : NavMeshAgentCharacter
 
         //Return to default state after timer has run
         if (returnToDefaultAfterSeconds.HasValue)
-            Observable.Timer(TimeSpan.FromSeconds(returnToDefaultAfterSeconds.Value)).Take(1).Subscribe(x => CurrentEmotionalState = EmotionalState.Default).AddTo(this);
+            Observable.Timer(TimeSpan.FromSeconds(returnToDefaultAfterSeconds.Value)).Take(1).Subscribe(x => { CurrentEmotionalState = EmotionalState.Default; Debug.Log("*** Timer ended, changed emotion!"); }).AddTo(this);
     }
+    */
     #endregion
 
     #region Unity
     protected virtual void Awake()
     {
-        CurrentState = _initialState;
+        CurrentState = initialState;
     }
 
     protected override void Update()
     {
         base.Update();
-        CurrentState.Execute(this);
+        CurrentState.ExecuteState(this);
     }
     #endregion
 }

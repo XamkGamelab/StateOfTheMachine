@@ -9,7 +9,7 @@ public class FSMActionPatrol : FSMAction
     public override void Execute(FSMCharacter stateMachine)
     {
         base.Execute(stateMachine);
-        Debug.Log("Execute Patrol Action");
+        
         if (!stateMachine.Agent.hasPath || stateMachine.Agent.remainingDistance < CloseEnoughDistance)
         {
             stateMachine.SetNextPatrolPointDestination();
