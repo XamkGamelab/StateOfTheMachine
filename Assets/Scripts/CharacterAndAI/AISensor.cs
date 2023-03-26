@@ -62,6 +62,7 @@ public class AISensor : MonoBehaviour
     {
         scanInterval = 1.0f / ScanFrequency;
     }
+
     private void Update()
     {
         

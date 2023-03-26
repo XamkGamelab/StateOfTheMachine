@@ -41,6 +41,9 @@ public class ApplicationController : SingletonMono<ApplicationController>
     private void InstantiateLightning(Vector3 worldPoint)
     {
         Debug.DrawRay(worldPoint, Vector3.up * 10f, Color.blue, 1f);
+        LightningBolt lightningBolt = Instantiate<LightningBolt>(Resources.Load<LightningBolt>("LightningBolt"));
+        AudioController.Instance.PlaySoundEffect("Thunder", 1f, Random.Range(0.9f, 1.1f));
+        lightningBolt.transform.position = worldPoint;
     }
 
     private RaycastHit? ScreenPointRaycast(Vector3 screenPoint)
