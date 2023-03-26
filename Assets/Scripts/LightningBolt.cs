@@ -1,5 +1,8 @@
 using UnityEngine;
 
+/// <summary>
+/// Render lightning bolt effect with LineRenderer.
+/// </summary>
 public class LightningBolt : MonoBehaviour
 {
     [ColorUsage(true, true)] //HDR color for the lightning
@@ -10,13 +13,15 @@ public class LightningBolt : MonoBehaviour
     public float MaxRandomnessXZ = 1f;
     public float LightMaxIntensity = 3f;
     public int UpdateFrequency = 30;
+    public float DrawGizmoRadius = 10f;
 
     private float segmentLength => LightningHeight / LightningSegments;
     private LineRenderer lineRenderer;
     private Light pointLight => GetComponentInChildren<Light>();
     private float updateInterval => 1.0f / UpdateFrequency;
     private float updateTimer;
-
+    
+    #region Unity
     private void Awake()
     {
         SetupLightningLineRenderer();
@@ -33,6 +38,13 @@ public class LightningBolt : MonoBehaviour
             pointLight.intensity = Random.Range(0, LightMaxIntensity);
         }        
     }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = new Color(0, 1, 0, 0.3f);
+        Gizmos.DrawWireSphere(transform.position, DrawGizmoRadius);
+    }
+    #endregion
 
     private void SetupLightningLineRenderer()
     {

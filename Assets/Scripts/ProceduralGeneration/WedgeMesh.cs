@@ -1,7 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Class to generate and update geometry for wedge mesh.
+/// </summary>
 public static class WedgeMesh
 {
     public static Mesh GenerateWedgeMesh(float angle, float distance, float height)

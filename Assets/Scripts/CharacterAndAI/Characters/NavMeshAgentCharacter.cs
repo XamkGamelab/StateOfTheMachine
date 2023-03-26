@@ -1,12 +1,20 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+
+/// <summary>
+/// Base class for all characters using NavMeshAgent.
+/// </summary>
 [RequireComponent(typeof(NavMeshAgent), typeof(Collider), typeof(Animator))]
 public abstract class NavMeshAgentCharacter : MonoBehaviour
 {
+    
     public NavMeshAgent Agent => GetComponent<NavMeshAgent>();
     public Animator Anim => GetComponent<Animator>();
+    
+    [Header("Agent Basic Settings")]
+    public float WalkSpeed = 3f;
+    public float RunSpeed = 6f;
 
     public List<Transform> PatrolPointTransforms;
     public Transform CurrentPatrolPoint { get; private set; }

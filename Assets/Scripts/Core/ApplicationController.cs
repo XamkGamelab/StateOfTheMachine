@@ -44,6 +44,25 @@ public class ApplicationController : SingletonMono<ApplicationController>
         LightningBolt lightningBolt = Instantiate<LightningBolt>(Resources.Load<LightningBolt>("LightningBolt"));
         AudioController.Instance.PlaySoundEffect("Thunder", 1f, Random.Range(0.9f, 1.1f));
         lightningBolt.transform.position = worldPoint;
+
+        //Get inflicted character from radius and set them to PANIC!:
+        GetOverlappingCharacters(worldPoint, 10f).ForEach(character => character.SetEmotionalState(FSMCharacter.EmotionalState.Panic, worldPoint, 5f));        
+    }
+
+    private List<FSMCharacter> GetOverlappingCharacters(Vector3 position, float radius)
+    {
+        Collider[] colliders = new Collider[50];
+        int count = Physics.OverlapSphereNonAlloc(position, radius, colliders);
+
+        List<FSMCharacter> characters = new List<FSMCharacter>();
+        for (int i = 0; i < count; i++)
+        {
+            FSMCharacter character = colliders[i].GetComponent<FSMCharacter>();
+            if (character != null)
+                characters.Add(character);
+        }
+
+        return characters;
     }
 
     private RaycastHit? ScreenPointRaycast(Vector3 screenPoint)

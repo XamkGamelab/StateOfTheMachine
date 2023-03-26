@@ -1,12 +1,10 @@
 # State of the Machine
-Demonstrates a finite-state machine (FSM) implementation and use of agents and custom sensors for sight and hearing.
+Demonstrates a finite-state machine (FSM) implementation and use of agents and custom sensor for sight.
 
 Sources and code examples used in this project:
-- WIP
-
-### Unity Asset Store Free Assets Used in This Project
-- WIP 
+- Unity AI Development: A Finite-state Machine Tutorial: https://www.toptal.com/unity-unity3d/unity-ai-development-finite-state-machine-tutorial/
+- Unity Line of Sight Checking Using Sensors: https://www.youtube.com/watch?v=znZXmmyBF-o&ab_channel=TheKiwiCoder/
 
 ### Credits and Licences for Other Assets
-Textures: https://www.textures.com/
-Sounds: sound effects from <a href="https://pixabay.com/sound-effects/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=music&amp;utm_content=25689">Pixabay</a>
+Mannequin Model: https://www.mixamo.com/
+Sound effects from Pixabay: https://pixabay.com/

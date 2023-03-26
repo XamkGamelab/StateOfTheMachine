@@ -12,3 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd14afe57ec92e34aaac1a7c9ca6a321, type: 3}
   m_Name: FSM Action Patrol
   m_EditorClassIdentifier: 
+  ExecuteOnce: 0
+  CloseEnoughDistance: 0.5

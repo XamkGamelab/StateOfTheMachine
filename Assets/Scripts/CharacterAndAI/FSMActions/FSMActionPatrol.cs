@@ -1,7 +1,8 @@
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.AI;
 
+/// <summary>
+/// Patrol through character's PatrolPoints.
+/// </summary>
 [CreateAssetMenu(menuName = "FSM/Actions/Patrol")]
 public class FSMActionPatrol : FSMAction
 {

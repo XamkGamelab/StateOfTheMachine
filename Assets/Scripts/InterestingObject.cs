@@ -2,9 +2,14 @@ using System;
 using UnityEngine;
 using UniRx;
 
+/// <summary>
+/// Objects that FSM characters find interesting.
+/// </summary>
 public class InterestingObject : MonoBehaviour
 {
+    [Tooltip("For how long character is interested of the object.")]
     public float IsInterestingForSeconds = 4f;
+    [Tooltip("How long before character can get interested of the object again.")]
     public float InterestReturnCooldown = 10f;
     private bool isInteresting = true;
 

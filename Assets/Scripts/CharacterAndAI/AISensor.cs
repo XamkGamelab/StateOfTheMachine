@@ -1,7 +1,10 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Sight sensor that scans "pie slice" area of given angle and distance.
+/// Checks collisions from scanned area and keeps track of them in Objects list.
+/// </summary>
 [ExecuteInEditMode]
 public class AISensor : MonoBehaviour
 {
