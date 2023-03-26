@@ -21,9 +21,7 @@ public class FSMState : ScriptableObject
             if (action.ExecuteOnce)
             {
                 if (!action.IsExecuted)
-                    action.Execute(machine);
-                else
-                    Debug.Log(action.name + " already executed once!");
+                    action.Execute(machine);                
             }
             else
             {

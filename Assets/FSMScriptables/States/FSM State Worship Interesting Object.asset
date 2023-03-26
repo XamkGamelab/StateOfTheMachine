@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 568f58b8f3dcbe048bf5380145a1305a, type: 3}
-  m_Name: WanderState
+  m_Name: FSM State Worship Interesting Object
   m_EditorClassIdentifier: 
   Action:
-  - {fileID: 11400000, guid: c927d23ee52c15740b450f11c7741b7c, type: 2}
+  - {fileID: 11400000, guid: 472d77b1f1c18404aa0ab572f9137f75, type: 2}
   Transitions:
-  - {fileID: 11400000, guid: 0b1ad74352967074cbe575fb6423135c, type: 2}
+  - {fileID: 11400000, guid: 23ad4fd40e27ae643aef71f290f4318d, type: 2}
   RemainState: 0

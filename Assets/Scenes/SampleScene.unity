@@ -372,7 +372,8 @@ MonoBehaviour:
   OcclusionLayers:
     serializedVersion: 2
     m_Bits: 1
-  Objects: []
+  Objects:
+  - {fileID: 1892191292}
 --- !u!95 &119491714
 Animator:
   serializedVersion: 5
@@ -401,7 +402,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 119491708}
   m_LocalRotation: {x: -0, y: -0.9675706, z: -0, w: 0.25260106}
-  m_LocalPosition: {x: -17.94, y: 0, z: 12.37}
+  m_LocalPosition: {x: -2.47, y: 0, z: 12.37}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

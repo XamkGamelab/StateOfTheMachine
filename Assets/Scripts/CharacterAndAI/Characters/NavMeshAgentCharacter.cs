@@ -43,6 +43,11 @@ public abstract class NavMeshAgentCharacter : MonoBehaviour
     {
         Agent.SetDestination(destinationPosition);
     }
+
+    public void SetAnimatorBoolean(string booleanName, bool value)
+    {
+        Anim.SetBool(booleanName, value);
+    }
     #endregion
 
     #region Protected
