@@ -6,10 +6,10 @@ Sources and code examples used in this project:
 - Unity Line of Sight Checking Using Sensors: https://www.youtube.com/watch?v=znZXmmyBF-o&ab_channel=TheKiwiCoder/
 
 ### Unity Asset Store Free Assets Used in This Project
-- ProBuilder
-- ProGrids
 - UniRx
 
 ### Credits and Licences for Other Assets
 - Mannequin Model: https://www.mixamo.com/
 - Sound effects from Pixabay: https://pixabay.com/
+- Textures: https://www.textures.com/
+
