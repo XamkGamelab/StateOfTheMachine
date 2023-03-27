@@ -11,13 +11,16 @@ public class FSMCharacter : NavMeshAgentCharacter
     public enum EmotionalState { Default, Interested, Panic }
 
     [Header("FSM Character Settings")]
-    [SerializeField, Tooltip("State from which the AI starts executing next states depending on decisions.")] 
-    private FSMState initialState;
+
+    [Tooltip("State from which the AI starts executing next states depending on decisions.")] 
+    public FSMState initialState;
+
+    [ReadOnly, Tooltip("Current state for debugging.")]
+    public FSMState CurrentState;
+
     [Tooltip("Transitions that are allowed from any state.")]
     public List<FSMTransition> FromAnyStateTransitions = new List<FSMTransition>();
 
-    [ReadOnly, Tooltip("Current state for debugging.")] 
-    public FSMState CurrentState;        
     public EmotionalState CurrentEmotionalState = EmotionalState.Default;
     
     //Position that causes current emotional state

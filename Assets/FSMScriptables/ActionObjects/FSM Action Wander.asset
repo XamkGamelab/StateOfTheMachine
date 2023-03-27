@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: FSM Action Wander
   m_EditorClassIdentifier: 
   ExecuteOnce: 0
-  MinWanderAreaXZ: {x: -20, y: -20}
-  MaxWanderAreaXZ: {x: 20, y: 20}
+  MinWanderAreaXZ: {x: -13, y: -13}
+  MaxWanderAreaXZ: {x: 13, y: 13}
   CloseEnoughDistance: 0.5

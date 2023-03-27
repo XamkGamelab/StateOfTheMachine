@@ -12,7 +12,8 @@ public class FSMActionInterestingObject : FSMAction
         base.Execute(stateMachine);
         //Execute once
         AISensor enemySightSensor = stateMachine.GetComponent<AISensor>();
-        GameObject firstObject = enemySightSensor.Objects.FirstOrDefault();        
-        stateMachine.SetDirectAgentDestination(firstObject.transform.position);
+        GameObject firstObject = enemySightSensor.Objects.FirstOrDefault();    
+        if (firstObject != null)
+            stateMachine.SetDirectAgentDestination(firstObject.transform.position);
     }
 }

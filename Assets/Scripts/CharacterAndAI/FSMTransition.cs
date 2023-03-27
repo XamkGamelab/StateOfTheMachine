@@ -13,17 +13,40 @@ public sealed class FSMTransition : ScriptableObject
 
     public void Execute(FSMCharacter stateMachine)
     {
-        if (Decision.Decide(stateMachine) && !TrueState.RemainState)
+        if (Decision.Decide(stateMachine))
         {
-            //Reset executed actions when state changes
-            TrueState.Action.ForEach(action => action.SetExecuted(false));
-            stateMachine.CurrentState = TrueState;
+            if (TrueState != null)
+            {
+                if (TrueState.RemainState)
+                    return;
+
+                //Reset executed actions when state changes
+                TrueState.Action.ForEach(action => action.SetExecuted(false));
+                stateMachine.CurrentState = TrueState;
+            }
+            else
+            {
+                stateMachine.initialState.Action.ForEach(action => action.SetExecuted(false));
+                stateMachine.CurrentState = stateMachine.initialState;
+            }
         }
-        else if (!FalseState.RemainState)
+        else
         {
-            //Reset executed actions when state changes
-            TrueState.Action.ForEach(action => action.SetExecuted(false));
-            stateMachine.CurrentState = FalseState;
+            if (FalseState != null)
+            {
+                if (FalseState.RemainState)
+                    return;
+
+                //Reset executed actions when state changes
+                FalseState.Action.ForEach(action => action.SetExecuted(false));
+                stateMachine.CurrentState = FalseState;
+            }
+            else
+            {
+                stateMachine.initialState.Action.ForEach(action => action.SetExecuted(false));
+                stateMachine.CurrentState = stateMachine.initialState;
+            }
         }
+        
     }
 }

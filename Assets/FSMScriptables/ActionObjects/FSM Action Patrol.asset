@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: FSM Action Patrol
   m_EditorClassIdentifier: 
   ExecuteOnce: 0
-  CloseEnoughDistance: 0.5
+  CloseEnoughDistance: 2

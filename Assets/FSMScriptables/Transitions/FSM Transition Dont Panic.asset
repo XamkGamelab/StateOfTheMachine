@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: FSM Transition Dont Panic
   m_EditorClassIdentifier: 
   Decision: {fileID: 11400000, guid: 57e4d8382ee15cc4dbb0f97d9b64dfbf, type: 2}
-  TrueState: {fileID: 11400000, guid: 9a04c27bff05d3e4dbcfb9f9063d5a3c, type: 2}
+  TrueState: {fileID: 0}
   FalseState: {fileID: 11400000, guid: 7b4b1cfac11b40946b3710170e9de320, type: 2}
